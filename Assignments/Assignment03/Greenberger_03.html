@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assignment 03 - Responsive Flexbox Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    body {
+      font-family: Arial, Helvetica, Tahoma, sans-serif;
+      margin: 0;
+      color: #333;
+      background-color: #dcdcdc;
+    }
+    .page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ---- header + nav (buttons, like assignment 02 / the working sample) ---- */
+    header {
+      background-color: #c020c0;
+      color: #fff;
+      padding: 1.25rem 1.5rem;
+    }
+    .header-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.75rem;
+    }
+    header p {
+      margin: 0.25rem 0 0 0;
+      font-size: 0.9rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.75rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.85rem;
+      padding: 0.4em 1em;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.18);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.35);
+    }
+    nav a.active {
+      background-color: #fff;
+      color: #c020c0;
+    }
+
+    /* ---- aside (left) / main (right) via flexbox ---- */
+    .content {
+      display: flex;
+      flex: 1;
+      flex-wrap: wrap;
+    }
+    aside {
+      flex: 1 1 260px;
+      background-color: #a2c022;
+      color: #fff;
+      padding: 1.5rem;
+    }
+    aside h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+    aside form label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    aside form input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.35rem;
+      border: none;
+      border-radius: 2px;
+    }
+    aside form button {
+      display: block;
+      margin-top: 1.5rem;
+      background-color: #6b6b1f;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+    aside form button:hover {
+      background-color: #565517;
+    }
+    main {
+      flex: 3 1 500px;
+      background-color: #eeeeee;
+      padding: 1.5rem;
+    }
+    section {
+      background-color: #c9c000;
+      padding: 1.5rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      text-align: center;
+      padding: 0.75rem;
+    }
+    th {
+      background-color: #6b6b1f;
+      color: #fff;
+    }
+    td {
+      background-color: #e8e4c9;
+    }
+    tr:nth-child(even) td {
+      background-color: #ddd8b8;
+    }
+
+    footer {
+      background-color: #1d63c4;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .content {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="header-row">
+        <div>
+          <h1>Jacob Greenberger</h1>
+          <p>Assignment 03 | Create a responsive HTML page</p>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="Greenberger_02.html" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="content">
+      <aside>
+        <h2>Sign Up</h2>
+        <form action="#" method="post">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" name="first-name" placeholder="Text Input">
+
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" name="last-name" placeholder="Text Input">
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Email Input">
+
+          <button type="submit">Submit</button>
+        </form>
+      </aside>
+
+      <main>
+        <section>
+          <h2 class="visually-hidden">Data Table</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Heading</th>
+                <th>Heading</th>
+                <th>Heading</th>
+                <th>Heading</th>
+                <th>Heading</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Item</td>
+                <td>Item</td>
+                <td>Item</td>
+                <td>Item</td>
+                <td>Item</td>
+              </tr>
+              <tr>
+                <td>Item</td>
+                <td>Item</td>
+                <td>Item</td>
+                <td>Item</td>
+                <td>Item</td>
+              </tr>
+              <tr>
+                <td>Item</td>
+                <td>Item</td>
+                <td>Item</td>
+                <td>Item</td>
+                <td>Item</td>
+              </tr>
+              <tr>
+                <td>Item</td>
+                <td>Item</td>
+                <td>Item</td>
+                <td>Item</td>
+                <td>Item</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Jacob Greenberger. CSC-235-02-Spring 2026.</p>
+    </footer>
+  </div>
+</body>
+</html>
